@@ -34,4 +34,9 @@ export class App {
       lista.map((t) => (t.id === id ? { ...t, completada: !t.completada } : t)),
     );
   }
+
+  eliminar(id: number): void{
+    this.tareas.update(lista => lista.filter((t) => t.id != id)
+    )
+  }
 }
