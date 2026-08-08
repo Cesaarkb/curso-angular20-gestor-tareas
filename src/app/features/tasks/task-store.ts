@@ -16,6 +16,7 @@ export class TaskStore{
   }
 
   pendientes = computed(() => this.tareas().filter((t) => !t.completada).length);
+  completas = computed(() => this.tareas().filter((t) => t.completada).length);
 
   agregar(titulo: string): void {
     const limpio = titulo.trim();
@@ -52,5 +53,10 @@ export class TaskStore{
     { id: 2, titulo: 'Construir un proyecto nuevo', completada: false },
     { id: 3, titulo: 'Dominar signals', completada: true },
     ];
+  }
+
+  limpiarCompletadas(): void{
+        this.tareas.update(lista => lista.filter((t) => !t.completada)
+    )
   }
 }

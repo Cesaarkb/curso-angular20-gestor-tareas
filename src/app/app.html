@@ -12,6 +12,7 @@
 
     <button (click)="store.agregar(inputTarea.value); inputTarea.value = ''">Agregar</button>
   </div>
+    <button (click)="store.limpiarCompletadas()" [disabled]="store.completas() === 0">Limpiar Completas</button>
 
   <ul>
     @for (tarea of store.tareas(); track tarea.id) {
